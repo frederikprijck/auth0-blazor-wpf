@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0-Blazor-WPF", "Auth0-Blazor-WPF\Auth0-Blazor-WPF.csproj", "{F2FA4553-7DF8-47B5-A132-C662E9EDB631}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2FA4553-7DF8-47B5-A132-C662E9EDB631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FA4553-7DF8-47B5-A132-C662E9EDB631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FA4553-7DF8-47B5-A132-C662E9EDB631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FA4553-7DF8-47B5-A132-C662E9EDB631}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AEE06B5-1E2B-4AB0-B364-D6944B68E67D}
+	EndGlobalSection
+EndGlobal

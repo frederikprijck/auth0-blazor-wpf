@@ -8,7 +8,7 @@ namespace Auth0_Blazor_WPF
     {
         private AuthenticationState currentUser = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
 
-        public Auth0AuthenticationStateProvider(Auth0Client client)
+        public Auth0AuthenticationStateProvider(Auth0ClientBridge client)
         {
             client.UserChanged += (newUser) =>
             {

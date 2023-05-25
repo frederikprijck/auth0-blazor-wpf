@@ -1,4 +1,5 @@
-﻿using IdentityModel.Client;
+﻿using Auth0.OidcClient;
+using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using System;
@@ -8,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Auth0_Blazor_WPF
 {
-    public class Auth0Client
+    public class Auth0ClientBridge
     {
         public event Action<ClaimsPrincipal>? UserChanged;
 
-        private readonly OidcClient oidcClient;
+        private readonly Auth0Client auth0Client;
 
-        public Auth0Client(OidcClient client)
+        public Auth0ClientBridge(Auth0Client client)
         {
-            oidcClient = client;
+            auth0Client = client;
         }
 
         public async Task<LoginResult> LogInAsync()
         {
-            var result = await oidcClient.LoginAsync();
+            var result = await auth0Client.LoginAsync();
 
             UserChanged(result.User);
 
@@ -30,22 +31,7 @@ namespace Auth0_Blazor_WPF
 
         public async void LogOut()
         {
-            var logoutParameters = new Dictionary<string, string>
-        {
-          {"client_id", oidcClient.Options.ClientId },
-          {"returnTo", oidcClient.Options.RedirectUri }
-        };
-
-            var logoutRequest = new LogoutRequest();
-            var endSessionUrl = new RequestUrl($"{oidcClient.Options.Authority}/v2/logout")
-              .Create(new Parameters(logoutParameters));
-            var browserOptions = new BrowserOptions(endSessionUrl, oidcClient.Options.RedirectUri)
-            {
-                Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
-                DisplayMode = logoutRequest.BrowserDisplayMode
-            };
-
-            await oidcClient.Options.Browser.InvokeAsync(browserOptions);
+            await auth0Client.LogoutAsync();
 
             UserChanged(new ClaimsPrincipal(new ClaimsIdentity()));
         }
